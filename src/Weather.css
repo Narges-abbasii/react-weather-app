@@ -38,12 +38,11 @@
   line-height: 64px;
 }
 
-.Weather unit {
+.Weather .unit {
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
   color: rgb(33, 33, 33);
   position: relative;
   top: -34px;
-  margin-left: 5px;
 }
