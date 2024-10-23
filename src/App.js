@@ -23,6 +23,14 @@ export default function App() {
             rel="noreferrer"
           >
             open-sourced in Github
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://react-weather-app-rouge-six.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            hosted on Vercel
           </a>
         </footer>
       </div>
