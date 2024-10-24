@@ -1,0 +1,14 @@
+.WeatherForecast {
+  text-align: center;
+}
+
+.weatherForecast-tempretures-min {
+  opacity: 0.6;
+  margin-left: 5px;
+}
+
+.WeatherForecast img {
+  width: 60px;
+  margin-right: 5px;
+  margin-top: -10px;
+}
