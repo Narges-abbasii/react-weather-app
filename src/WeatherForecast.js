@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./WeatherForecast.css";
 import WeatherForecastDay from "./WeatherForecastDay";
@@ -6,9 +6,21 @@ import WeatherForecastDay from "./WeatherForecastDay";
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecastData, setForecastData] = useState(null);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.data]);
+
   function handleRespose(response) {
     setLoaded(true);
     setForecastData(response.data.daily);
+  }
+
+  function load() {
+    const apiKey = "b318adc2a4e42ff5a70at1cf59b30fbo";
+    let city = props.data.city;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&unit='metric'`;
+    axios.get(apiUrl).then(handleRespose);
   }
 
   if (loaded) {
@@ -31,10 +43,7 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    const apiKey = "b318adc2a4e42ff5a70at1cf59b30fbo";
-    let city = props.data.city;
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&unit='metric'`;
-    axios.get(apiUrl).then(handleRespose);
+    load();
     return null;
   }
 }
